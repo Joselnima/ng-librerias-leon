@@ -17,13 +17,13 @@ This repository demonstrates a production-ready React monorepo with:
 
 - **7 Libraries**
 
-  - `@org/shop-feature-products` - Product listing feature (React)
-  - `@org/shop-feature-product-detail` - Product detail feature (React)
-  - `@org/shop-data` - Data access layer for shop features
-  - `@org/shop-shared-ui` - Shared UI components
-  - `@org/models` - Shared data models
-  - `@org/api-products` - API product service library
-  - `@org/shared-test-utils` - Shared testing utilities
+  - `@leon-librerias/shop-feature-products` - Product listing feature (React)
+  - `@leon-librerias/shop-feature-product-detail` - Product detail feature (React)
+  - `@leon-librerias/shop-data` - Data access layer for shop features
+  - `@leon-librerias/shop-shared-ui` - Shared UI components
+  - `@leon-librerias/models` - Shared data models
+  - `@leon-librerias/api-products` - API product service library
+  - `@leon-librerias/shared-test-utils` - Shared testing utilities
 
 - **E2E Testing**
   - `shop-e2e` - Playwright tests for the shop application
@@ -203,12 +203,15 @@ npx nx affected -t test                        # Test only affected projects
 
 ```bash
 npx nx g @nx/react:app my-app
+bunx nx g @nx/react:app apps/<nombre de la aplicación>
 ```
 
 ### Generate a new React library:
 
 ```bash
 npx nx g @nx/react:lib my-lib
+bunx nx g @nx/react:lib libs/mi-libreria --bundler=vite --publishable --importPath=@leon-librerias/mi-libreria --skipPackageJson --verbose
+nx g @nx/react:lib libs/dropzone --bundler=vite --publishable --importPath=@lion/dropzone
 ```
 
 ### Generate a new React component:

@@ -27,8 +27,7 @@
           "buildDepsName": "build-deps",
           "watchDepsName": "watch-deps"
         }
-      },
-      "exclude": ["libs/shared/models/*"]
+      }
     },
     {
       "plugin": "@nx/react/router-plugin",
@@ -69,7 +68,6 @@
     },
     {
       "plugin": "@nx/js/typescript",
-      "include": ["libs/shared/models/*"],
       "options": {
         "typecheck": {
           "targetName": "typecheck"
@@ -114,6 +112,11 @@
         "linter": "eslint",
         "unitTestRunner": "vitest"
       }
+    }
+  },
+  "release": {
+    "version": {
+      "preVersionCommand": "bunx nx run-many -t build"
     }
   }
 }

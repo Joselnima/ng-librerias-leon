@@ -4,34 +4,28 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/api"
+      "path": "./apps/demo-libreria-leon"
     },
     {
-      "path": "./apps/shop-e2e"
+      "path": "./libs/forms"
     },
     {
-      "path": "./apps/shop"
+      "path": "./libs/ui"
     },
     {
-      "path": "./libs/api/products"
+      "path": "./libs/theme"
     },
     {
-      "path": "./libs/shared/models"
+      "path": "./libs/core"
     },
     {
-      "path": "./libs/shop/data"
+      "path": "./libs/data-view"
     },
     {
-      "path": "./libs/shop/feature-product-detail"
+      "path": "./libs/shared"
     },
     {
-      "path": "./libs/shop/feature-products"
-    },
-    {
-      "path": "./libs/shop/shared-ui"
-    },
-    {
-      "path": "./libs/shared/test-utils"
+      "path": "./libs/reporting"
     }
   ]
 }
