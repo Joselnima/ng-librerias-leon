@@ -12,9 +12,7 @@ export const BasicButton: React.FC<BasicButtonProps> = ({
     size = 'medium',
     color = 'primary',
     variant = 'contained',
-    label = '',
-    icon = null,
-    iconPosition = 'start',
+    content = '',
     fullWidth = false,
     onClick = () => { },
     disabled = false,
@@ -24,38 +22,7 @@ export const BasicButton: React.FC<BasicButtonProps> = ({
 }) => {
 
     const spinner = <CircularProgress size={20} color="inherit" />;
-
     const isBlocked: boolean = loading || disabled;
-
-    // Si hay ícono, reemplaza por spinner
-    let iconProps = {};
-    if (icon && iconPosition === 'start') {
-        iconProps = { startIcon: loading ? spinner : icon };
-    } else if (icon && iconPosition === 'end') {
-        iconProps = { endIcon: loading ? spinner : icon };
-    }
-
-    const renderContent = () => {
-        if (iconPosition === 'center') {
-            return (
-                <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
-                    {loading ? spinner : icon}
-                    {label && <span>{label}</span>}
-                </Box>
-            );
-        }
-
-        if (!icon && label) {
-            return (
-                <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
-                    {loading && spinner}
-                    <span>{label}</span>
-                </Box>
-            );
-        }
-
-        return <span>{label}</span>;
-    };
 
     return (
         <Button
@@ -70,13 +37,19 @@ export const BasicButton: React.FC<BasicButtonProps> = ({
                 cursor: isBlocked ? 'not-allowed' : 'pointer',
                 pointerEvents: isBlocked ? 'none' : 'auto',
                 opacity: isBlocked ? 0.7 : 1,
+                textTransform: 'none'
             }}
-            {...iconProps}
             {...rest}
         >
-            {renderContent()}
+            {loading ? (
+                <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
+                    {spinner}
+                    {content}
+                </Box>
+            ) : content}
         </Button>
     );
 };
+
 
 export default BasicButton;

@@ -1,6 +1,5 @@
 export interface Base {
-    label?: string;
-    icon?: React.ReactNode;
+    content?: string | React.ReactNode;
     loading?: boolean;
     disabled?: boolean;
     onClick: () => void;

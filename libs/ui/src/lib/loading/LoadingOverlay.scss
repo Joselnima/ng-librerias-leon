@@ -1,0 +1,103 @@
+.loading-host {
+    --width: auto;
+    --min-width: auto;
+    --max-width: 270px;
+    --height: auto;
+    --min-height: auto;
+    --max-height: 90%;
+    --loading-icon-size: 26px;
+    --backdrop-opacity: 0.3;
+    --background-loading-wrapper: #fff;
+    --loading-border-color: #ccc;
+    --loading-border-top-color: #333;
+
+    /* Fullscreen overlay */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2000;
+    background: rgba(0, 0, 0, var(--backdrop-opacity));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-animation: fadeIn 200ms linear;
+    animation: fadeIn 200ms linear;
+
+    /* Centered responsive box */
+    .loading-wrapper {
+        background: var(--background-loading-wrapper);
+        min-width: var(--min-width);
+        width: var(--width);
+        max-width: var(--max-width);
+        min-height: var(--min-height);
+        height: var(--height);
+        max-height: var(--max-height);
+        border-radius: 8px;
+        z-index: 1001;
+        padding: 24px 34px;
+        display: flex;
+        align-items: inherit;
+        justify-content: inherit;
+
+        .loading-spinner {
+            width: var(--loading-icon-size);
+            height: var(--loading-icon-size);
+            border: 3px solid var(--loading-border-color);
+            border-radius: 50%;
+            border-top: 3px solid var(--loading-border-top-color);
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-content {
+            margin-left: 16px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 18px;
+        }
+    }
+}
+
+/* Small devices tweaks */
+@media (max-width: 480px) {
+    .loading-host .loading-wrapper {
+        width: auto;
+        max-width: 85vw;
+        padding: 16px 20px;
+        border-radius: 6px;
+    }
+
+    .loading-host .loading-wrapper .loading-content {
+        margin-left: 12px;
+        font-size: 13px;
+    }
+
+    .loading-host .loading-wrapper .loading-spinner {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

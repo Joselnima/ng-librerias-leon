@@ -1,6 +1,6 @@
 "use client";
 
-import { IconButton } from "@mui/material";
+import { IconButton, CircularProgress } from "@mui/material";
 import { ButtonIconProps } from "../interfaces/icon-button.interface";
 
 export const ButtonIcon: React.FC<ButtonIconProps> = ({
@@ -10,20 +10,22 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
     loading = false,
     disabled = false,
     onClick,
+    content, // Destructure but don't use
     ...rest
 }) => {
+
 
     const isBlocked: boolean = loading || disabled;
 
     return (
         <IconButton
+            type="button"
             size={size}
             color={color}
-            onClick={!isBlocked ? (e) => {
+            onClick={!isBlocked ? (e: any) => {
                 e.stopPropagation();
                 onClick?.(e)
             } : undefined}
-            loading={loading}
             disabled={isBlocked}
             sx={{
                 ...rest.sx,
@@ -33,9 +35,10 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
             }}
             {...rest}
         >
-            {icon}
+            {loading ? <CircularProgress size={20} color="inherit" /> : icon}
         </IconButton>
     )
+
 }
 
 export default ButtonIcon;

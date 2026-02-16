@@ -1,6 +1,6 @@
 {
   "name": "@leon-librerias/ui",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -16,6 +16,17 @@
   },
   "files": [
     "dist",
+    "css",
     "!**/*.tsbuildinfo"
-  ]
+  ],
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.1",
+    "@mui/material": "^7.3.1",
+    "perfect-scrollbar": "^1.5.6",
+    "sweetalert2": "^11.22.5"
+  }
 }

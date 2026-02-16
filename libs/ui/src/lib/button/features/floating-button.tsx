@@ -17,7 +17,7 @@ const positionStyles: Record<string, React.CSSProperties> = {
 
 export const FloatingButton: React.FC<FloatingButtonProps> = ({
   icon,
-  label,
+  content,
   onClick,
   position = 'bottom-right',
   color = 'primary',
@@ -25,6 +25,7 @@ export const FloatingButton: React.FC<FloatingButtonProps> = ({
   variant = 'circular',
   loading = false,
   disabled = false,
+  type = 'button',
   ...rest
 }) => {
 
@@ -32,6 +33,7 @@ export const FloatingButton: React.FC<FloatingButtonProps> = ({
 
   return (
     <Fab
+      type={type}
       color={color}
       size={size}
       variant={variant}
@@ -50,8 +52,8 @@ export const FloatingButton: React.FC<FloatingButtonProps> = ({
       ) : (
         <>
           {icon}
-          {variant === 'extended' && label && (
-            <span style={{ marginLeft: 8 }}>{label}</span>
+          {variant === 'extended' && content && (
+            <span style={{ marginLeft: 8 }}>{content}</span>
           )}
         </>
       )}
@@ -59,5 +61,6 @@ export const FloatingButton: React.FC<FloatingButtonProps> = ({
   );
 
 }
+
 
 export default FloatingButton;

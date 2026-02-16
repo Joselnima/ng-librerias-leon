@@ -5,7 +5,11 @@
     "emitDeclarationOnly": true,
     "importHelpers": true,
     "isolatedModules": true,
-    "lib": ["es2022"],
+    "lib": [
+      "es2022",
+      "dom",
+      "dom.iterable"
+    ],
     "module": "esnext",
     "moduleResolution": "bundler",
     "noEmitOnError": true,
@@ -16,6 +20,32 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@leon-librerias/source"]
+    "customConditions": [
+      "@leon-librerias/source"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@leon-librerias/core": [
+        "libs/core/src/index.ts"
+      ],
+      "@leon-librerias/ui": [
+        "libs/ui/src/index.ts"
+      ],
+      "@leon-librerias/forms": [
+        "libs/forms/src/index.ts"
+      ],
+      "@leon-librerias/theme": [
+        "libs/theme/src/index.ts"
+      ],
+      "@leon-librerias/data-view": [
+        "libs/data-view/src/index.ts"
+      ],
+      "@leon-librerias/shared": [
+        "libs/shared/src/index.ts"
+      ],
+      "@leon-librerias/reporting": [
+        "libs/reporting/src/index.ts"
+      ]
+    }
   }
 }
